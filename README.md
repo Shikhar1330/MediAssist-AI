@@ -1,5 +1,6 @@
 # MediAssist-AI
 Welcome to your Lovable project
+
 Project info
 URL: https://lovable.dev/projects/b773f555-fdc5-4727-bc1a-af6a7709b9e8
 
