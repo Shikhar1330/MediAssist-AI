@@ -1,0 +1,114 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 210 40% 98%;
+    --foreground: 222.2 84% 4.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+
+    --primary: 210 100% 50%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 150 64% 46%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --accent: 265 80% 75%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222.2 84% 4.9%;
+
+    --radius: 0.75rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+@layer components {
+  .medical-card {
+    @apply bg-white shadow-lg rounded-xl border border-gray-100 overflow-hidden transition-all duration-300 hover:shadow-xl;
+  }
+  
+  .medical-input {
+    @apply w-full px-2 md:px-4 py-2 md:py-3 rounded-lg border border-gray-200 focus:ring-2 focus:ring-primary/30 focus:border-primary outline-none transition-all;
+  }
+  
+  .pulse-animation {
+    @apply relative;
+  }
+  
+  .pulse-animation::after {
+    content: '';
+    @apply absolute inset-0 rounded-full bg-primary/50 z-0 animate-ripple;
+  }
+  
+  .glass-card {
+    @apply bg-white/80 backdrop-blur-md border border-white/20 shadow-lg;
+  }
+  
+  .responsive-tabs {
+    @apply flex flex-wrap gap-1;
+  }
+  
+  .responsive-grid {
+    @apply grid gap-3 md:gap-4;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  }
+  
+  .responsive-stats {
+    @apply flex flex-col items-center justify-center text-center p-2;
+  }
+}
+
+@media (max-width: 640px) {
+  .container {
+    @apply px-3;
+  }
+  
+  .tabs-mobile-layout {
+    @apply grid grid-cols-2 gap-1 w-full;
+  }
+}
+
+/* Custom animation for loading progress indicator */
+@keyframes progress {
+  0% { 
+    left: -5%;
+    width: 5%;
+  }
+  50% { 
+    left: 50%;
+    width: 25%;
+  }
+  100% { 
+    left: 105%;
+    width: 5%;
+  }
+}
+
+.animate-progress {
+  animation: progress 2s ease-in-out infinite;
+}
